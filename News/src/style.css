@@ -1,0 +1,203 @@
+:root {
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #172033;
+  background: #edf1f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --ink: #172033;
+  --ink-soft: #526074;
+  --muted: #8a94a5;
+  --paper: #ffffff;
+  --canvas: #f3f6fa;
+  --line: #e3e8ef;
+  --accent: #db3b42;
+  --accent-soft: #fff0f0;
+  --blue: #2457d6;
+  --blue-soft: #eaf0ff;
+  --primary-color: var(--accent);
+  --text-color: var(--ink);
+  --text-color-light: var(--ink-soft);
+  --text-color-lighter: var(--muted);
+  --border-color: var(--line);
+  --background-color: var(--canvas);
+  --white: var(--paper);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --shadow-sm: 0 8px 24px rgba(23, 32, 51, 0.07);
+  --shadow-lg: 0 18px 48px rgba(23, 32, 51, 0.12);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+
+  --van-primary-color: var(--accent);
+  --van-blue: var(--accent);
+  --van-background: var(--canvas);
+  --van-background-2: var(--paper);
+  --van-text-color: var(--ink);
+  --van-text-color-2: var(--ink-soft);
+  --van-border-color: var(--line);
+  --van-nav-bar-background: rgba(255, 255, 255, 0.94);
+  --van-nav-bar-title-text-color: var(--ink);
+  --van-nav-bar-icon-color: var(--ink);
+  --van-nav-bar-text-color: var(--ink);
+  --van-tabs-bottom-bar-color: var(--accent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #e8edf3;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(36, 87, 214, 0.08), transparent 28rem),
+    #e8edf3;
+  overflow-x: hidden;
+}
+
+body,
+.app,
+.van-nav-bar,
+.van-cell,
+.van-cell-group,
+.van-popup,
+.van-tabbar {
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+html[data-theme="dark"] body {
+  background: #0b0f16;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: #fff;
+  background: var(--accent);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9d0da;
+  border-radius: 999px;
+}
+
+.van-nav-bar {
+  border-bottom: 1px solid rgba(227, 232, 239, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: none;
+}
+
+.van-nav-bar::after {
+  display: none;
+}
+
+.van-nav-bar__title {
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.van-button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 8px 18px rgba(219, 59, 66, 0.18);
+}
+
+.van-button--primary:active {
+  background: #c92f37;
+}
+
+.van-cell-group--inset {
+  margin: 0 16px;
+  overflow: hidden;
+  border: 1px solid rgba(227, 232, 239, 0.9);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.van-cell {
+  padding: 16px;
+}
+
+.van-empty {
+  padding-top: 120px;
+}
+
+.van-empty__description {
+  color: var(--muted);
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .van-tab__panel {
+    animation: rise-in 0.36s ease both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
